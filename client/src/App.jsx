@@ -5,7 +5,7 @@ import Header from './components/Header';
 import PrivateRoute from './components/PrivateRoute';
 import CreateListing from './pages/CreateListing';
 import UpdateListing from './pages/UpdateListing';
-import Listings from './pages/listings';
+import Listings from './pages/Listings';
 import Schedules from './pages/Schedules';
 export default function App() {
   return (
