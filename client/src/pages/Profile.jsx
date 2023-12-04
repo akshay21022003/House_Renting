@@ -25,6 +25,7 @@ export default function Profile() {
       dispatch(deleteUserFailure(data.message));
     }
   };
+  
   return (
 <div className='bg-green-50 min-h-screen flex flex-col justify-center items-center'>
   <div className='bg-white p-8 rounded-lg shadow-md w-full max-w-md'>
