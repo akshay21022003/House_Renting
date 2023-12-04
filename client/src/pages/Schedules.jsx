@@ -49,7 +49,7 @@ export default function Schedules() {
       {!error && (
         <div className="flex mb-4">
           <button
-            className={`mr-4 tab-btn ${filterStatus === 'accepted' ? 'active-tab' : ''}`}
+            className={`mr-4 tab-btn ${filterStatus === 'accepted' ? 'active-tab' : ''} `}
             onClick={() => filterSchedules('accepted')}
           >
             Accepted
