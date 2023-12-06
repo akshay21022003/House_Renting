@@ -74,7 +74,7 @@ export default function Schedules() {
             <p>No schedules found.</p>
           ) : (
             filteredSchedules.map((scheduleItem) => (
-              <ScheduleComponent key={scheduleItem.id} scheduleData={scheduleItem} />
+              <ScheduleComponent key={scheduleItem.id} scheduleData={scheduleItem} fromUserDetails={scheduleItem.fromUserDetails}/>
             ))
           )}
         </div>

@@ -1,8 +1,9 @@
 import React, { useReducer } from 'react';
-const ScheduleComponent = ({ scheduleData }) => {
+const ScheduleComponent = ({ scheduleData , fromUserDetails}) => {
     
   const { id,requestTime, status, listingDetails } = scheduleData;
   const { name, description, address, city, country, imageUrls } = listingDetails;
+  const { username, email, mobilenumber } = fromUserDetails;
   const isPending = status === 'pending';
   const isAccepted = status === 'accepted';
   const isRejected = status === 'rejected';
@@ -93,6 +94,15 @@ const ScheduleComponent = ({ scheduleData }) => {
         <p className="text-gray-600 mt-2">
           <span className="font-semibold">Request Time:</span>{' '}
           {new Date(requestTime).toLocaleString()}
+        </p>
+        <p className="text-gray-600 mt-2">
+          <span className="font-semibold">Username:</span> {username}
+        </p>
+        <p className="text-gray-600 mt-2">
+          <span className="font-semibold">Email:</span> {email}
+        </p>
+        <p className="text-gray-600 mt-2">
+          <span className="font-semibold">Mobile Number:</span> {mobilenumber}
         </p>
       </div>
 

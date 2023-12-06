@@ -234,9 +234,10 @@ export const acceptSchedule = async (req, res, next) => {
 
     for (const item of schedule) {
       const listing = await Listing.findOne({ _id: item.listingId });
-      const user = await User.findOne({ _id: item.toUser });
+      const toUser = await User.findOne({ _id: item.toUser });
+      const fromUser = await User.findOne({ _id: item.fromUser});
 
-      if (listing && user) {
+      if ((listing && toUser) && (listing && fromUser)) {
         const currentDate = new Date();
         const requestDateTime = new Date(item.requestedTime);
         if (requestDateTime <= currentDate) {
@@ -249,7 +250,8 @@ export const acceptSchedule = async (req, res, next) => {
           status: item.status,
           requestTime: item.requestedTime,
           listingDetails: listing,
-          userDetails: user,
+          toUserDetails: toUser,
+          fromUserDetails :fromUser,
         };
 
         scheduleWithDetails.push(scheduleItem);
