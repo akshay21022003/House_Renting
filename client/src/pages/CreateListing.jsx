@@ -140,7 +140,8 @@ export default function CreateListing() {
           ...formData,
           userRef: currentUser._id,
           username: currentUser.username,
-          avatar: currentUser.avatar
+          avatar: currentUser.avatar,
+          mobilenumber: currentUser.mobilenumber
         }),
       });
       const data = await res.json();
