@@ -24,9 +24,15 @@ const userSchema = new mongoose.Schema(
       type:Array,
       default:[]
     },
-    mobilenumber:{
-      type:Number,
-      required:true,
+    mobilenumber: {
+      type: Number,
+      required: true,
+      validate: {
+        validator: function(v) {
+          return /^\d{10}$/.test(v.toString());
+        },
+        message: 'Mobile number must be 10 digits long'
+      }
     }
   },
   { timestamps: true }
