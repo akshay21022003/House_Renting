@@ -11,7 +11,7 @@ export default function Header() {
           <h1 className='font-bold text-sm sm:text-xl flex flex-wrap'>
             <span className='text-green-700'>Akshay</span>
             <span className='text-white'>Rents</span>
-          </h1>=
+          </h1>
         <ul className='flex gap-4'>
           {currentUser ? (
             <>
