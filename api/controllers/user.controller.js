@@ -237,25 +237,25 @@ export const acceptSchedule = async (req, res, next) => {
       const toUser = await User.findOne({ _id: item.toUser });
       const fromUser = await User.findOne({ _id: item.fromUser});
 
-      if ((listing && toUser) && (listing && fromUser)) {
-        const currentDate = new Date();
-        const requestDateTime = new Date(item.requestedTime);
-        if (requestDateTime <= currentDate) {
-          await Schedule.findByIdAndUpdate(item._id, { status: 'rejected' });
-          item.status = 'rejected';
-        }
+      // if ((listing && toUser) && (listing && fromUser)) {
+      //   const currentDate = new Date();
+      //   const requestDateTime = new Date(item.requestedTime);
+      //   if (requestDateTime <= currentDate) {
+      //     await Schedule.findByIdAndUpdate(item._id, { status: 'rejected' });
+      //     item.status = 'rejected';
+      //   }
 
-        const scheduleItem = {
-          id: item._id,
-          status: item.status,
-          requestTime: item.requestedTime,
-          listingDetails: listing,
-          toUserDetails: toUser,
-          fromUserDetails :fromUser,
-        };
+      //   const scheduleItem = {
+      //     id: item._id,
+      //     status: item.status,
+      //     requestTime: item.requestedTime,
+      //     listingDetails: listing,
+      //     toUserDetails: toUser,
+      //     fromUserDetails :fromUser,
+      //   };
 
-        scheduleWithDetails.push(scheduleItem);
-      }
+      //   scheduleWithDetails.push(scheduleItem);
+      // }
     }
 
     res.status(200).json(scheduleWithDetails);
